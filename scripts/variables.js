@@ -8,6 +8,7 @@ class Variables {
             this.userEq = "";
             this.calcButton = document.querySelector("#calcul")
             this.errInfo = "";
+            this.transEqInput = document.querySelector("#transEq")
         }
         return Variables.instance
     }

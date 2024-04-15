@@ -103,7 +103,7 @@ body{
     margin-right: 10px;
 }
 
-.inputMod input {
+.inputMod input, #transEq {
     flex-grow: 1;
     text-align: center; 
 }

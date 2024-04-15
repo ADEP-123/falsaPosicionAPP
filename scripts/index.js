@@ -1,3 +1,5 @@
+import formatEquation from "./modules/readTransEq/formatEq.js"
+import transEQ from "./modules/readTransEq/transEq.js"
 import Variables from "./variables.js"
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -22,20 +24,12 @@ document.addEventListener("DOMContentLoaded", e => {
         e.stopPropagation()
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
         try {
-            // Interpretar la ecuación utilizando Math.js
-            const userFunction = math.compile(variables.userEq);
-
-            const result = userFunction.evaluate({ x: 1 });
-
-            console.log({
-                Value: variables.userEq,
-                Result: result
-            });
+            transEQ(variables.userEq)
+            const formattedEquation = formatEquation(variables.userEq)
+            variables.transEqInput.innerHTML = `${formattedEquation}`
         } catch (error) {
             variables.setNewErrorInfo("Error en la escritura de la ecuacion");
-            console.error("Error en la escritura de la ecuacion");
         }
-
     })
 
 })
