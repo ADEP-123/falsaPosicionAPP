@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="images/logo.jpg">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
     <title>falPosAPP</title>
 </head>
 
@@ -13,12 +14,15 @@
     <div class="mainAppDiv">
 
         <div class="appTittleDiv">
+            
             <h1 class="appTittle">Falsa Posicion APP</h1>
+
             <button id="infoButt" class="infoButt"><b>?</b></button>
             <div id="infoModal" class="modal">
+
                 <p>Para Usar la APP siga los siguientes pasos:</p>
                 <ol>
-                    <li>Ingrese la ecuacion que desea</li>
+                    <li>Ingrese la ecuacion que desea, tenga en cuenta que los angulos se miden en radianes</li>
                     <li>Ingrese el limite superior</li>
                     <li>Ingrese el limite inferior</li>
                     <li>Ingrese la cantidad de decimales a tener en cuenta
@@ -39,9 +43,11 @@
                     <li>Presione el boton calcular</li>
                 </ol>
             </div>
+
         </div>
 
         <div class="appContentDiv">
+
             <div class="settingsPanelDiv">
 
                 <div class="inputMod settingsPanelFunctDiv">
@@ -70,7 +76,7 @@
 
                     <div class="inputMod">
                         <p>Cant Decimales:</p>
-                        <input id="cantDec" type="number" min="1" max="5" placeholder="1">
+                        <input id="cantDec" type="number" min="1" max="5" value="1">
                     </div>
 
                     <div class="inputMod">
@@ -154,6 +160,7 @@
                 </div>
 
                 <div class="tableSelectInfoDiv">
+
                     <div>
                         <select id="iteSelect">
                             <option value="0">Iteracion</option>
@@ -173,6 +180,7 @@
                 </div>
 
             </div>
+
         </div>
 
     </div>
