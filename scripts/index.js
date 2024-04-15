@@ -1,3 +1,4 @@
+import depErrorMessages from "./modules/errorMessages/depErrorMessages.js"
 import showModal from "./modules/infoAPP/showModal.js"
 import concatBoard from "./modules/readTransEq/concatBoard.js"
 import formatEquation from "./modules/readTransEq/formatEq.js"
@@ -21,16 +22,21 @@ document.addEventListener("DOMContentLoaded", e => {
         e.preventDefault()
         e.stopPropagation()
 
+        variables.clearErrorInfo()
 
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
-        try {
-            transEQ(variables.userEq)
+        transEQ()
+
+        if (variables.errInfo.length != 0) {
+            console.log(variables.errDiv);
+            depErrorMessages(variables.errInfo, variables.errDiv);
+        } else {
+            variables.errDiv.style.display = "none";
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
-        } catch (error) {
-            console.error(error);
-            variables.setNewErrorInfo("Error en la escritura de la ecuacion");
         }
+
+
     })
 
     //Evento to show calculator board
