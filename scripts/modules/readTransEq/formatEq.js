@@ -18,6 +18,10 @@ const formatEquation = (userEquation) => {
 
     // Reemplazar '^' con superíndices
     formattedEquation = formattedEquation.replace(/\^(\d+)/g, '<sup>$1</sup>');
+    const regex = /log\((\d+),\s*([^)]+)\)/g;
+    formattedEquation = formattedEquation.replace(regex, function (match, base, valor) {
+        return "log<sub>" + base + "</sub>(" + valor + ")";
+    });
 
     return formattedEquation;
 }

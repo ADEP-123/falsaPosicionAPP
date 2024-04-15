@@ -9,6 +9,8 @@ class Variables {
             this.calcButton = document.querySelector("#calcul")
             this.errInfo = "";
             this.transEqInput = document.querySelector("#transEq")
+            this.calcBoardButton = document.querySelector("#boardCalcButton")
+            this.calcBoard = document.querySelector("#boardCalc")
         }
         return Variables.instance
     }
