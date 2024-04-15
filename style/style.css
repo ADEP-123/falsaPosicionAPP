@@ -1,0 +1,183 @@
+:root {
+    --white: #ffffff;
+    --gray:#5c616b;
+    --gray2:#757880;
+    --black:#1e2025;
+    --red:#bb0000;
+    --blue1:#daf6ff;
+    --blue2:#0aafe6;
+    --whiteRed:#f3b7b7;
+    --whiteYellow:#f5f5b4;
+    --whiteGreen:#c0f5c7;
+}
+*,*::after,*::before{
+    box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
+}
+body{
+    color: white;
+    background-color: var(--black);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Ajustes generales */
+.mainAppDiv{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--white);
+}
+.appTittleDiv, .appContentDiv{
+    border: 1px solid var(--white);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+ }
+ /* 1. app Tittle DIV  */
+.appTittleDiv{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+   width: 100%;
+}
+
+.appTittle{
+    width: 92%;
+    text-align: center;
+}
+.infoButt{
+    border-radius: 100%;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    padding: 8px;
+}
+.infoButt:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 1px var(--white);
+}
+
+
+ /* 2. appContentDiv */
+ .appContentDiv{
+    flex-direction: column;
+    padding: 10px;
+ }
+ /* 2.1 Settings Panel DIV */
+.settingsPanelDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+ }
+ 
+.inputMod {
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+}
+
+.inputMod p {
+    flex-shrink: 0; 
+    margin-right: 10px;
+}
+
+.inputMod input {
+    flex-grow: 1; 
+}
+
+ /* 2.1.1 Settings Panel Function Div */
+.settingsPanelizqDiv, .settingsPanelderDiv{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    padding-right: 10px;
+}
+
+ /* 2.1.2 Settings Panel Izquierdo DIV */
+.settingsPanelizqDiv input[type=number]::-webkit-inner-spin-button,
+.settingsPanelizqDiv input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+ /* 2.2 Table Panel DIV */
+.tablePanelDiv{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+
+ /* 2.2.1 Table Tittles div */
+.tableTittlesDiv{
+    display: flex;
+    align-items: center;
+}
+
+.tittleElm, .rowElm{
+    flex: 1;
+    border: 1px solid var(--white);
+    height: 50px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+
+.tittleElm{
+    color: var(--black);
+    background-color: var(--gray2);
+}
+
+.tittleElm h2{
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+ /* 2.2.2 Table row div */
+.tableRowDiv{
+   display: flex;
+   align-items: center;
+}
+
+ /* 2.2.2 Table select info div */
+.tableSelectInfoDiv{
+    padding: 10px;
+    border: 1px solid var(--white);
+}
+
+.tableSelectInfoDiv, .tableSelectInfoDiv div{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.tableSelectInfoDiv button{
+    border-radius: 20px;
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    margin-left: 5px;
+}
+
+.tableSelectInfoDiv button:hover{
+    box-shadow: 0px 0px 5px 1px var(--white);
+    cursor: pointer;
+}
+
+
+
+
+

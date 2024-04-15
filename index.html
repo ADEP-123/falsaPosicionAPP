@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.jpg">
+    <link rel="stylesheet" href="style/style.css">
+    <title>falPosAPP</title>
+</head>
+
+<body>
+    <div class="mainAppDiv">
+        <div class="appTittleDiv">
+            <h1 class="appTittle">Falsa Posicion APP</h1>
+            <button id="infoButt" class="infoButt"><b>?</b></button>
+        </div>
+        <div class="appContentDiv">
+            <div class="settingsPanelDiv">
+
+                <div class="inputMod settingsPanelFunctDiv">
+                    <p>Ingresa la ecuacion:</p>
+                    <input id="userEq" type="text" placeholder="Ecuacion AQUI!">
+                </div>
+
+                <div class="settingsPanelizqDiv">
+
+                    <div class="inputMod">
+                        <p>Funcion: </p>
+                        <input id="transEq" type="text" disabled>
+                    </div>
+                    <div class="inputMod">
+                        <p>Lim Sup: </p>
+                        <input id="limSup" type="number">
+                    </div>
+                    <div class="inputMod">
+                        <p>Lim Inf: </p>
+                        <input id="limInf" type="number">
+                    </div>
+
+                </div>
+
+                <div class="settingsPanelderDiv">
+
+                    <div class="inputMod">
+                        <p>Cant Decimales:</p>
+                        <input id="cantDec" type="number" min="0">
+                    </div>
+
+                    <div class="inputMod">
+                        <p>Cant Iteraciones:</p>
+                        <input id="cantIter" type="number" min="1">
+                    </div>
+
+                    <div class="inputMod">
+                        <p>Error Minimo: </p>
+                        <input id="cantIter" type="number" step="0.01">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tablePanelDiv">
+
+                <div class="tableInfoDiv">
+
+                    <div class="tableTittlesDiv">
+                        <div class="tittleElm">
+                            <h2>I</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>X<sub>i</sub></h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>X<sub>u</sub></h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>X<sub>r</sub></h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>f(x<sub>i</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>f(x<sub>u</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>f(x<sub>r</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>Signo f(x<sub>i</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>Signo f(x<sub>u</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>Signo f(x<sub>r</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>Cambio f(x<sub>r</sub>)</h2>
+                        </div>
+
+                        <div class="tittleElm">
+                            <h2>Error f(x<sub>r</sub>)</h2>
+                        </div>
+                        <div class="tittleElm">
+                            <h2>|x<sub>i+1</sub> - x<sub>i</sub>|</h2>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tableRowDiv" id="row0">
+                    <p class="rowElm" id="i"></p>
+                    <p class="rowElm" id="xi"></p>
+                    <p class="rowElm" id="xu"></p>
+                    <p class="rowElm" id="xr"></p>
+                    <p class="rowElm" id="fxi"></p>
+                    <p class="rowElm" id="fxu"></p>
+                    <p class="rowElm" id="fxr"></p>
+                    <p class="rowElm" id="sfxi"></p>
+                    <p class="rowElm" id="sfxu"></p>
+                    <p class="rowElm" id="sfxr"></p>
+                    <p class="rowElm" id="camfxr"></p>
+                    <p class="rowElm" id="errfxr"></p>
+                    <p class="rowElm" id="resAbs"></p>
+                </div>
+
+                <div class="tableSelectInfoDiv">
+                    <div>
+                        <select id="iteSelect">
+                            <option value="0">Iteracion</option>
+                        </select>
+                        <button id="showIteInfo">Mostrar</button>
+                    </div>
+
+                    <button id="showGraf">Grafica</button>
+                    <div>
+                        <p id="showedIter">Iteraciones 1-10</p>
+                        <button id="nextPackIt"><</button>
+                        <button id="befPackIt">></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
