@@ -147,10 +147,35 @@ body{
 }
 
  /* 2.2.2 Table row div */
- .tableRowDiv{
-    display: flex;
-    align-items: center;
- }
+.tableRowDiv{
+   display: flex;
+   align-items: center;
+}
+
+ /* 2.2.2 Table select info div */
+.tableSelectInfoDiv{
+    padding: 10px;
+    border: 1px solid var(--white);
+}
+
+.tableSelectInfoDiv, .tableSelectInfoDiv div{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.tableSelectInfoDiv button{
+    border-radius: 20px;
+    color: var(--white);
+    background-color: var(--black);
+    border: 1px solid var(--white);
+    margin-left: 5px;
+}
+
+.tableSelectInfoDiv button:hover{
+    box-shadow: 0px 0px 5px 1px var(--white);
+    cursor: pointer;
+}
 
 
 
