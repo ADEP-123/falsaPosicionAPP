@@ -7,10 +7,11 @@ class Variables {
             this.userEqInput = document.querySelector("#userEq")
             this.userEq = "";
             this.calcButton = document.querySelector("#calcul")
-            this.errInfo = "";
+            this.errInfo = [];
+            this.errDiv = document.querySelector("#errDiv");
             this.transEqInput = document.querySelector("#transEq")
             this.calcBoardButton = document.querySelector("#boardCalcButton")
-            this.calcBoard = document.querySelector("#boardCalc")
+            this.calcBoard = document.querySelector("#boardCalc");
         }
         return Variables.instance
     }
@@ -20,7 +21,11 @@ class Variables {
     }
 
     setNewErrorInfo(info) {
-        this.errInfo = info;
+        this.errInfo.push(info);
+    }
+
+    clearErrorInfo(){
+        this.errInfo = []
     }
 
 }
