@@ -23,6 +23,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 /* Ajustes generales */
 .mainAppDiv{
@@ -39,6 +40,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
  }
  /* 1. app Tittle DIV  */
 .appTittleDiv{
