@@ -23,6 +23,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 /* Ajustes generales */
 .mainAppDiv{
@@ -39,6 +40,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
  }
  /* 1. app Tittle DIV  */
 .appTittleDiv{
@@ -101,12 +103,68 @@ body{
     margin-right: 10px;
 }
 
-.inputMod input {
+.inputMod input, #transEq {
     flex-grow: 1;
     text-align: center; 
 }
 
  /* 2.1.1 Settings Panel Function Div */
+.settingsPanelFunctDiv{
+    display: flex; 
+    align-items: center; 
+    width: 100%;
+    overflow: hidden;
+}
+
+.settingsPanelFunctDiv p {
+    flex-shrink: 0; 
+    margin-right: 10px;
+}
+
+.settingsPanelFunctDiv input {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.settingsPanelFunctDiv button {
+    flex-grow: 0;
+    text-align: center;
+    border: 1px solid white;
+    background-color: black;
+    color: var(--white); 
+    border-radius: 5px;
+}
+
+.settingsPanelFunctDiv button:hover {
+    box-shadow: 0px 0px 5px 1px var(--white);
+    cursor: pointer;
+}
+
+.specialBoard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0; 
+    position: absolute; 
+    right: -100%;
+    top: 13.5%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    transition: right 0.5s ease; 
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+#spBordCol1{
+    margin-right:10px ;
+}
+.specialBoard div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+ /* 2.1.2 Settings Panel Izquierdo DIV */
 .settingsPanelizqDiv, .settingsPanelderDiv{
     display: flex;
     flex-direction: column;
@@ -115,7 +173,6 @@ body{
     padding-right: 10px;
 }
 
- /* 2.1.2 Settings Panel Izquierdo DIV */
 .settingsPanelizqDiv input[type=number]::-webkit-inner-spin-button,
 .settingsPanelizqDiv input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
