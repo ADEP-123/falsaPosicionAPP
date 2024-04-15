@@ -16,6 +16,7 @@ class Variables {
             this.cantDec = document.querySelector("#cantDec");
             this.cantIter = document.querySelector("#cantIter");
             this.errMin = document.querySelector("#errMin");
+            this.rows = [];
             Variables.instance = this;
         }
         return Variables.instance
@@ -29,8 +30,12 @@ class Variables {
         this.errInfo.push(info);
     }
 
-    clearErrorInfo(){
+    clearErrorInfo() {
         this.errInfo = []
+    }
+
+    setRows(rows) {
+        this.rows = rows;
     }
 
 }

@@ -1,4 +1,5 @@
 import Variables from "../../variables.js";
+import calByIter from "./calByIter.js";
 
 const transEQ = () => {
     const variables = new Variables()
@@ -13,11 +14,17 @@ const transEQ = () => {
     try {
         // Interpretar la ecuación utilizando Math.js
         const userFunction = math.compile(variables.userEq);
-        const result = userFunction.evaluate({ x: 1 });
-        console.log({
-            Value: userEq,
-            Result: result
-        });
+        if (variables.cantIter != null) {
+            //Funcion para calcular las filas
+            variables.setRows(calByIter(
+                userFunction,
+                variables.limInf.value,
+                variables.limSup.value,
+                variables.cantDec.value,
+                variables.cantIter.value
+            ))
+            console.log(variables.rows);
+        }
     } catch (error) {
         variables.setNewErrorInfo("Error en la escritura de la ecuacion")
     }
