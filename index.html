@@ -11,10 +11,36 @@
 
 <body>
     <div class="mainAppDiv">
+
         <div class="appTittleDiv">
             <h1 class="appTittle">Falsa Posicion APP</h1>
             <button id="infoButt" class="infoButt"><b>?</b></button>
+            <div id="infoModal" class="modal">
+                <p>Para Usar la APP siga los siguientes pasos:</p>
+                <ol>
+                    <li>Ingrese la ecuacion que desea</li>
+                    <li>Ingrese el limite superior</li>
+                    <li>Ingrese el limite inferior</li>
+                    <li>Ingrese la cantidad de decimales a tener en cuenta
+                        (Maximo 5)
+                    </li>
+                    <li>Si desea calcular por cantidad de iteraciones:
+                        <ul>
+                            <li>Ingrese la cantidad de iteraciones que desea (maximo 100)</li>
+                            <li>Deje vacio el error minimo</li>
+                        </ul>
+                    </li>
+                    <li>Si desea calcular por error minimo:
+                        <ul>
+                            <li>Ingrese el error minimo</li>
+                            <li>Deje vacio el error la cantidad de iteraciones</li>
+                        </ul>
+                    </li>
+                    <li>Presione el boton calcular</li>
+                </ol>
+            </div>
         </div>
+
         <div class="appContentDiv">
             <div class="settingsPanelDiv">
 
@@ -44,12 +70,12 @@
 
                     <div class="inputMod">
                         <p>Cant Decimales:</p>
-                        <input id="cantDec" type="number" min="0">
+                        <input id="cantDec" type="number" min="1" max="5" placeholder="1">
                     </div>
 
                     <div class="inputMod">
                         <p>Cant Iteraciones:</p>
-                        <input id="cantIter" type="number" min="1">
+                        <input id="cantIter" type="number" min="1" max="100">
                     </div>
 
                     <div class="inputMod">
@@ -135,19 +161,23 @@
                         <button id="showIteInfo">Mostrar</button>
                     </div>
 
+                    <button id="calcul">Calcular</button>
                     <button id="showGraf">Grafica</button>
                     <div>
                         <p id="showedIter">Iteraciones 1-10</p>
-                        <button id="nextPackIt"><</button>
-                        <button id="befPackIt">></button>
+                        <button id="nextPackIt">
+                            < </button>
+                                <button id="befPackIt"> > </button>
                     </div>
 
                 </div>
 
             </div>
         </div>
+
     </div>
 
+    <script src="scripts/index.js" type="module"></script>
 </body>
 
 </html>
