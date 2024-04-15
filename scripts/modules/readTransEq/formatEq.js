@@ -22,6 +22,8 @@ const formatEquation = (userEquation) => {
     formattedEquation = formattedEquation.replace(regex, function (match, base, valor) {
         return "log<sub>" + base + "</sub>(" + valor + ")";
     });
+    formattedEquation = formattedEquation.replace(/pi/g, 'π');
+    
 
     return formattedEquation;
 }

@@ -1,4 +1,5 @@
 import showModal from "./modules/infoAPP/showModal.js"
+import concatBoard from "./modules/readTransEq/concatBoard.js"
 import formatEquation from "./modules/readTransEq/formatEq.js"
 import transEQ from "./modules/readTransEq/transEq.js"
 import Variables from "./variables.js"
@@ -12,14 +13,15 @@ document.addEventListener("DOMContentLoaded", e => {
         e.stopPropagation()
         const modal = variables.infoAPP
         const otherModal = variables.calcBoard
-        showModal(modal,otherModal)
+        showModal(modal, otherModal)
     })
 
     // Event to recolect user info and translate it
     variables.calcButton.addEventListener("click", e => {
         e.preventDefault()
         e.stopPropagation()
-     
+
+
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
         try {
             transEQ(variables.userEq)
@@ -32,13 +34,19 @@ document.addEventListener("DOMContentLoaded", e => {
     })
 
     //Evento to show calculator board
-    variables.calcBoardButton.addEventListener("click",e=>{
+    variables.calcBoardButton.addEventListener("click", e => {
         e.preventDefault()
         e.stopPropagation()
         const modal = variables.calcBoard
         const otherModal = variables.infoAPP
-        showModal(modal,otherModal)
-        
+        showModal(modal, otherModal)
+    })
+
+    //Evento para manejar el tablero
+    variables.calcBoard.addEventListener("click", e => {
+        e.preventDefault()
+        e.stopPropagation()
+        concatBoard(e.target, variables.userEqInput)
     })
 
 })
