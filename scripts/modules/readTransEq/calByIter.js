@@ -28,7 +28,10 @@ const calByIter = (userFunction, limInf, limSup, cantDec, cantIter) => {
         fxi > 0 ? sigfxi = "+" : sigfxi = "-";
         fxu > 0 ? sigfxu = "+" : sigfxu = "-";
         fxr > 0 ? sigfxr = "+" : sigfxr = "-";
-        if (sigfxi === sigfxr) {
+        if (isNaN(fxi) == true || isNaN(fxu) == true || isNaN(fxr) == true || isNaN(xr) == true) {
+            variables.setNewErrorInfo("No es posible calcular la raiz con las condiciones indicadas,le recomendamos utilizar el metodo visual")
+            return
+        } else if (sigfxi === sigfxr) {
             cambio = /*html*/`<p>x<sub>i</sub> → x<sub>${iteration}</sub></p>`
         } else if (sigfxu === sigfxr) {
             cambio = /*html*/`<p>x<sub>u</sub> → x<sub>${iteration}</sub></p>`
@@ -37,9 +40,6 @@ const calByIter = (userFunction, limInf, limSup, cantDec, cantIter) => {
             return;
         } else if (sigfxi != sigfxr && sigfxu != sigfxr) {
             variables.setNewErrorInfo("La ecuacion no tiene raiz")
-            return
-        } else if (fxi == NaN || fxu == NaN || fxr == NaN) {
-            variables.setNewErrorInfo("No es posible calcular la raiz con las condiciones indicadas,le recomendamos utilizar el metodo visual")
             return
         }
         if (iteration != 1) {
