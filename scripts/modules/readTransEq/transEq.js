@@ -1,4 +1,5 @@
 import Variables from "../../variables.js";
+import calByError from "./calByErr.js";
 import calByIter from "./calByIter.js";
 
 const transEQ = () => {
@@ -11,20 +12,31 @@ const transEQ = () => {
         variables.setNewErrorInfo("Debe llenar o la cantidad de iteraciones o el error minimo necesario")
     }
 
+    const userFunction = math.compile(variables.userEq);
+    if (variables.cantIter.value ? true : false) {
+        //Funcion para calcular las filas
+        variables.setRows(calByIter(
+            userFunction,
+            variables.limInf.value,
+            variables.limSup.value,
+            variables.cantDec.value,
+            variables.cantIter.value
+        ))
+        // console.log(variables.rows);
+    } else {
+        variables.setRows(calByError(
+            userFunction,
+            variables.limInf.value,
+            variables.limSup.value,
+            variables.cantDec.value,
+            variables.errMin.value
+        ))
+        // console.log(variables.rows);
+    }
+
     try {
         // Interpretar la ecuación utilizando Math.js
-        const userFunction = math.compile(variables.userEq);
-        if (variables.cantIter != null) {
-            //Funcion para calcular las filas
-            variables.setRows(calByIter(
-                userFunction,
-                variables.limInf.value,
-                variables.limSup.value,
-                variables.cantDec.value,
-                variables.cantIter.value
-            ))
-            console.log(variables.rows);
-        }
+
     } catch (error) {
         variables.setNewErrorInfo("Error en la escritura de la ecuacion")
     }

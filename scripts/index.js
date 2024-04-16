@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", e => {
         variables.clearErrorInfo()
 
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
+        // console.log(variables.userEqInput.value.toLowerCase());
         transEQ()
 
         if (variables.errInfo.length != 0) {
