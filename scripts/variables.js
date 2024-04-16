@@ -25,6 +25,9 @@ class Variables {
             this.showedIter = document.querySelector("#showedIter");
             this.iteSelect = document.querySelector("#iteSelect");
             this.showIteInfoButt = document.querySelector("#showIteInfo");
+            this.closeGeoFrame = document.querySelector("#closeGeoFrame");
+            this.geoFrameMainDiv = document.querySelector("#geoFrameMainDiv");
+            this.showGraf = document.querySelector("#showGraf");
             Variables.instance = this;
         }
         return Variables.instance

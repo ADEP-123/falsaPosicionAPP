@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", e => {
         concatBoard(e.target, variables.userEqInput)
     })
 
+    //Eventos para prevenir ingresar al tiempo la cantidad de iteraciones y el error minimo
     variables.cantIter.addEventListener("change", e => {
         e.preventDefault();
         e.stopPropagation();
@@ -120,5 +121,20 @@ document.addEventListener("DOMContentLoaded", e => {
             variables.cantIter.value = "";
         }
     })
+
+    //Eventos para controlar la calculadora grafica
+    variables.showGraf.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        variables.geoFrameMainDiv.style.display = "flex"
+    })
+
+    variables.closeGeoFrame.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        variables.geoFrameMainDiv.style.display = "none"
+    })
+
+
 
 })
