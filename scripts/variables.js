@@ -17,6 +17,7 @@ class Variables {
             this.cantIter = document.querySelector("#cantIter");
             this.errMin = document.querySelector("#errMin");
             this.rows = [];
+            this.tableInfoDiv = document.querySelector(".tableInfoDiv")
             Variables.instance = this;
         }
         return Variables.instance

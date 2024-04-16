@@ -220,7 +220,7 @@ body{
    align-items: center;
 }
 
- /* 2.2.2 Table select info div */
+ /* 2.2.3 Table select info div */
 .tableSelectInfoDiv{
     padding: 10px;
     border: 1px solid var(--white);

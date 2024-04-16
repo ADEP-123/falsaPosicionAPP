@@ -3,6 +3,7 @@ import showModal from "./modules/infoAPP/showModal.js"
 import concatBoard from "./modules/readTransEq/concatBoard.js"
 import formatEquation from "./modules/readTransEq/formatEq.js"
 import transEQ from "./modules/readTransEq/transEq.js"
+import showInfo from "./modules/showInfo/showInfo.js"
 import Variables from "./variables.js"
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", e => {
             variables.errDiv.style.display = "none";
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
+            showInfo(variables.rows)
         }
 
 
