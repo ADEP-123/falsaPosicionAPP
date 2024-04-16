@@ -23,6 +23,8 @@ class Variables {
             this.nextPackIt = document.querySelector("#nextPackIt");
             this.befPackIt = document.querySelector("#befPackIt");
             this.showedIter = document.querySelector("#showedIter");
+            this.iteSelect = document.querySelector("#iteSelect");
+            this.showIteInfoButt = document.querySelector("#showIteInfo");
             Variables.instance = this;
         }
         return Variables.instance

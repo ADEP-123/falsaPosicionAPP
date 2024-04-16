@@ -1,4 +1,4 @@
-const showInfo = (rows, indice) => {
+const showInfo = (rows, indice, max) => {
     const panelDiv = document.querySelector(".tablePanelDiv");
     panelDiv.querySelectorAll(".tableRowDiv").forEach(element => {
         element.id != "row0" ? panelDiv.removeChild(element) : null;
@@ -7,7 +7,7 @@ const showInfo = (rows, indice) => {
     const oldRow = document.querySelector("#row0")
     oldRow.style.display = "none"
     let lastRowNum = 0;
-    for (let i = indice; i <= indice + 9; i++) {
+    for (let i = indice; i <= indice + max - 1; i++) {
         if (i >= rows.length) {
             return;
         }

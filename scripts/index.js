@@ -3,6 +3,7 @@ import showModal from "./modules/infoAPP/showModal.js"
 import concatBoard from "./modules/readTransEq/concatBoard.js"
 import formatEquation from "./modules/readTransEq/formatEq.js"
 import transEQ from "./modules/readTransEq/transEq.js"
+import createIterations from "./modules/showInfo/createIterations.js"
 import showInfo from "./modules/showInfo/showInfo.js"
 import Variables from "./variables.js"
 
@@ -38,8 +39,9 @@ document.addEventListener("DOMContentLoaded", e => {
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
             variables.showedIter.innerHTML = `Iteraciones 1-${variables.rowsQuant}`
+            //ecuaciones para navegar entre paquetes de resultados
             if (variables.rowsQuant > 10) {
-                showInfo(variables.rows, variables.actualIndexIt)
+                showInfo(variables.rows, variables.actualIndexIt, 10)
                 //Agregando evento a los botones de cambio de cantidad de iteraciones
                 variables.showedIter.innerHTML = `Iteraciones 1-10`
                 variables.nextPackIt.addEventListener("click", e => {
@@ -47,10 +49,10 @@ document.addEventListener("DOMContentLoaded", e => {
                     e.stopPropagation();
                     variables.nexPack();
                     if (variables.actualIndexIt + 10 <= variables.rowsQuant) {
-                        showInfo(variables.rows, variables.actualIndexIt);
+                        showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
                     } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0) {
-                        showInfo(variables.rows, variables.actualIndexIt);
+                        showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.rowsQuant}`
                     }
                 })
@@ -60,13 +62,25 @@ document.addEventListener("DOMContentLoaded", e => {
                     e.stopPropagation();
                     if (variables.actualIndexIt - 10 >= 0) {
                         variables.befPack();
-                        showInfo(variables.rows, variables.actualIndexIt);
+                        showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
                     }
                 })
             } else {
-                showInfo(variables.rows, 0)
+                showInfo(variables.rows, 0, 10)
             }
+            //ecuacion para mostrar una iteracion en especifico
+            createIterations(variables.iteSelect, variables.rowsQuant)
+            variables.showIteInfoButt.addEventListener("click", e => {
+                e.preventDefault();
+                e.stopPropagation();
+                // console.log(variables.iteSelect.value);
+                if (variables.iteSelect.value != "0") {
+                    showInfo(variables.rows, variables.iteSelect.value - 1, 1)
+                    variables.showedIter.innerHTML = `Iteracion ${variables.iteSelect.value}`
+                }
+            })
+
 
         }
 

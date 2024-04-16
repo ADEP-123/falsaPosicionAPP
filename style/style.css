@@ -263,3 +263,8 @@ body{
 .errorMessage{
     color: var(--red);
 }
+#iteSelect{
+    overflow-y: auto;
+    text-align: center;
+    border-radius: 10px;
+}
