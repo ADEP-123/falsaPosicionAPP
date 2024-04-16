@@ -1,15 +1,42 @@
 import Variables from "../../variables.js";
+import calByError from "./calByErr.js";
+import calByIter from "./calByIter.js";
 
 const transEQ = () => {
-    // Interpretar la ecuación utilizando Math.js
     const variables = new Variables()
+
+    //Verificar que ingresó la informacion necesaria
+    variables.limSup.value == "" ? variables.setNewErrorInfo("El limite superior es obligatorio") : "";
+    variables.limInf.value == "" ? variables.setNewErrorInfo("El limite inferior es obligatorio") : "";
+    if (variables.cantIter.value == "" && variables.errMin.value == "") {
+        variables.setNewErrorInfo("Debe llenar o la cantidad de iteraciones o el error minimo necesario")
+    }
+
+    const userFunction = math.compile(variables.userEq);
+    if (variables.cantIter.value ? true : false) {
+        //Funcion para calcular las filas
+        variables.setRows(calByIter(
+            userFunction,
+            variables.limInf.value,
+            variables.limSup.value,
+            variables.cantDec.value,
+            variables.cantIter.value
+        ))
+        // console.log(variables.rows);
+    } else {
+        variables.setRows(calByError(
+            userFunction,
+            variables.limInf.value,
+            variables.limSup.value,
+            variables.cantDec.value,
+            variables.errMin.value
+        ))
+        // console.log(variables.rows);
+    }
+
     try {
-        const userFunction = math.compile(variables.userEq);
-        const result = userFunction.evaluate({ x: 1 });
-        console.log({
-            Value: userEq,
-            Result: result
-        });
+        // Interpretar la ecuación utilizando Math.js
+
     } catch (error) {
         variables.setNewErrorInfo("Error en la escritura de la ecuacion")
     }

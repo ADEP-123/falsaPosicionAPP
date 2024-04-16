@@ -25,10 +25,11 @@ document.addEventListener("DOMContentLoaded", e => {
         variables.clearErrorInfo()
 
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
+        // console.log(variables.userEqInput.value.toLowerCase());
         transEQ()
 
         if (variables.errInfo.length != 0) {
-            console.log(variables.errDiv);
+            // console.log(variables.errDiv);
             depErrorMessages(variables.errInfo, variables.errDiv);
         } else {
             variables.errDiv.style.display = "none";
@@ -53,6 +54,24 @@ document.addEventListener("DOMContentLoaded", e => {
         e.preventDefault()
         e.stopPropagation()
         concatBoard(e.target, variables.userEqInput)
+    })
+
+    variables.cantIter.addEventListener("change", e => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (variables.errMin.value != "" && variables.errMin.value != null) {
+            variables.errMin.value = "";
+        }
+    })
+
+    variables.errMin.addEventListener("change", e => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (variables.cantIter.value != "" && variables.cantIter.value != null) {
+            variables.cantIter.value = "";
+        }
     })
 
 })
