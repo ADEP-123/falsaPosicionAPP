@@ -2,7 +2,7 @@ import Variables from "../../variables.js";
 
 const clearPage = () => {
     const variables = new Variables
-    const panelDiv = document.querySelector(".tablePanelDiv");
+    const panelDiv = document.querySelector(".tableRowsDiv");
     panelDiv.querySelectorAll(".tableRowDiv").forEach(element => {
         element.id != "row0" ? panelDiv.removeChild(element) : null;
     });
