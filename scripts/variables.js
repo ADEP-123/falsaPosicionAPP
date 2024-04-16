@@ -50,6 +50,11 @@ class Variables {
         this.rowsQuant = rows.length
     }
 
+    clearRows(){
+        this.rows = [];
+        this.rowsQuant = 0
+    }
+
     nexPack() {
         this.actualIndexIt += 10
     }

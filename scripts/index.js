@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", e => {
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
             variables.showedIter.innerHTML = `Iteraciones 1-${variables.rowsQuant}`
-            //ecuaciones para navegar entre paquetes de resultados
+
+            //Ecuaciones para navegar entre paquetes de resultados
             if (variables.rowsQuant > 10) {
                 showInfo(variables.rows, variables.actualIndexIt, 10)
                 //Agregando evento a los botones de cambio de cantidad de iteraciones
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", e => {
                     if (variables.actualIndexIt + 10 <= variables.rowsQuant) {
                         showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
-                    } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0) {
+                    } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0 && variables.rowsQuant != 0) {
                         showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.rowsQuant}`
                     }
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", e => {
                 variables.befPackIt.addEventListener("click", e => {
                     e.preventDefault();
                     e.stopPropagation();
-                    if (variables.actualIndexIt - 10 >= 0) {
+                    if (variables.actualIndexIt - 10 >= 0 && variables.rowsQuant != 0) {
                         variables.befPack();
                         showInfo(variables.rows, variables.actualIndexIt, 10);
                         variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
