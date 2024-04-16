@@ -216,6 +216,27 @@ body{
 }
 
  /* 2.2.2 Table row div */
+.tableRowsDiv{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 55vh;
+}
+.tableRowsDiv::-webkit-scrollbar {
+    width: 12px;
+}
+.tableRowsDiv::-webkit-scrollbar-track {
+    background: var(--black);
+}
+.tableRowsDiv::-webkit-scrollbar-thumb {
+    background: var(--white); 
+    border-radius: 6px; 
+}
+.tableRowsDiv::-webkit-scrollbar-thumb:hover {
+    background: #ffffff65; 
+    transition: 1s;
+}
+
 .tableRowDiv{
    display: flex;
    align-items: center;
