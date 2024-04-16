@@ -4,6 +4,8 @@ import calByIter from "./calByIter.js";
 
 const transEQ = () => {
     const variables = new Variables()
+    variables.restPack()
+    variables.clearRows()
 
     //Verificar que ingresó la informacion necesaria
     variables.limSup.value == "" ? variables.setNewErrorInfo("El limite superior es obligatorio") : "";
@@ -25,7 +27,7 @@ const transEQ = () => {
                 variables.cantIter.value
             ))
             // console.log(variables.rows);
-        } else {
+        } else if (variables.errMin.value ? true : false) {
             variables.setRows(calByError(
                 userFunction,
                 variables.limInf.value,
@@ -34,6 +36,8 @@ const transEQ = () => {
                 variables.errMin.value
             ))
             // console.log(variables.rows);
+        } else {
+
         }
 
     } catch (error) {

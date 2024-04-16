@@ -38,6 +38,9 @@ const calByIter = (userFunction, limInf, limSup, cantDec, cantIter) => {
         } else if (sigfxi != sigfxr && sigfxu != sigfxr) {
             variables.setNewErrorInfo("La ecuacion no tiene raiz")
             return
+        } else if (fxi == NaN || fxu == NaN || fxr == NaN) {
+            variables.setNewErrorInfo("No es posible calcular la raiz con las condiciones indicadas,le recomendamos utilizar el metodo visual")
+            return
         }
         if (iteration != 1) {
             resAbs = Math.abs(xr - oldXr)

@@ -38,54 +38,47 @@ document.addEventListener("DOMContentLoaded", e => {
             variables.errDiv.style.display = "none";
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
-            variables.showedIter.innerHTML = `Iteraciones 1-${variables.rowsQuant}`
+            variables.showedIter.innerHTML = `Iteraciones 1-10`
 
-            //Ecuaciones para navegar entre paquetes de resultados
-            if (variables.rowsQuant > 10) {
-                showInfo(variables.rows, variables.actualIndexIt, 10)
-                //Agregando evento a los botones de cambio de cantidad de iteraciones
-                variables.showedIter.innerHTML = `Iteraciones 1-10`
-                variables.nextPackIt.addEventListener("click", e => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    variables.nexPack();
-                    if (variables.actualIndexIt + 10 <= variables.rowsQuant) {
-                        showInfo(variables.rows, variables.actualIndexIt, 10);
-                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
-                    } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0 && variables.rowsQuant != 0) {
-                        showInfo(variables.rows, variables.actualIndexIt, 10);
-                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.rowsQuant}`
-                    }
-                })
-
-                variables.befPackIt.addEventListener("click", e => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (variables.actualIndexIt - 10 >= 0 && variables.rowsQuant != 0) {
-                        variables.befPack();
-                        showInfo(variables.rows, variables.actualIndexIt, 10);
-                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
-                    }
-                })
-            } else {
-                showInfo(variables.rows, 0, 10)
-            }
-            //ecuacion para mostrar una iteracion en especifico
+            showInfo(variables.rows, 0, 10)
             createIterations(variables.iteSelect, variables.rowsQuant)
-            variables.showIteInfoButt.addEventListener("click", e => {
-                e.preventDefault();
-                e.stopPropagation();
-                // console.log(variables.iteSelect.value);
-                if (variables.iteSelect.value != "0") {
-                    showInfo(variables.rows, variables.iteSelect.value - 1, 1)
-                    variables.showedIter.innerHTML = `Iteracion ${variables.iteSelect.value}`
-                }
-            })
-
-
         }
+    })
 
+    //Ecuaciones para navegar entre paquetes de resultados
+    //Agregando evento a los botones de cambio de cantidad de iteraciones
+    variables.nextPackIt.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        variables.nexPack();
+        if (variables.actualIndexIt + 10 <= variables.rowsQuant) {
+            showInfo(variables.rows, variables.actualIndexIt, 10);
+            variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
+        } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0 && variables.rowsQuant != 0) {
+            showInfo(variables.rows, variables.actualIndexIt, 10);
+            variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.rowsQuant}`
+        }
+    })
 
+    variables.befPackIt.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (variables.actualIndexIt - 10 >= 0 && variables.rowsQuant != 0) {
+            variables.befPack();
+            showInfo(variables.rows, variables.actualIndexIt, 10);
+            variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
+        }
+    })
+
+    //ecuacion para mostrar una iteracion en especifico
+    variables.showIteInfoButt.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        // console.log(variables.iteSelect.value);
+        if (variables.iteSelect.value != "0") {
+            showInfo(variables.rows, variables.iteSelect.value - 1, 1)
+            variables.showedIter.innerHTML = `Iteracion ${variables.iteSelect.value}`
+        }
     })
 
     //Evento to show calculator board
