@@ -69,6 +69,7 @@ body{
     box-shadow: 0px 0px 6px 1px var(--white);
 }
 .modal {
+    display: none;
     position: absolute; 
     top: 6%;
     right: -100%;
@@ -141,7 +142,7 @@ body{
 }
 
 .specialBoard{
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -267,4 +268,58 @@ body{
     overflow-y: auto;
     text-align: center;
     border-radius: 10px;
+}
+ /* 2.4 Geo Frame Div */
+.geoFrameMainDiv{
+    display: none;
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    height: 90vh;
+    width: 90vw;
+    flex-direction: column;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.70);
+    border: 1px solid white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.geoControlPanel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+}
+.geoControlPanel h1{
+    width: 97%;
+    text-align: center;
+}
+.geoControlPanel button{
+    width: 3%;
+    background-color: var(--black);
+    color: white;
+    cursor: pointer;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+}
+.geoControlPanel button:hover{
+    box-shadow: 0px 0px 2px 2px var(--white);
+}
+
+.geoFrameDiv{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.70);
+}
+.geoFrameDiv iframe{
+    width: 100%;
+    height: 100%;
+    
 }

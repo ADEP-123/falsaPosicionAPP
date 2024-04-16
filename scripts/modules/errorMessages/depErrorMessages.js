@@ -1,4 +1,10 @@
+import clearIterations from "./clearIterations.js";
+import clearPage from "./clearPage.js";
+
 const depErrorMessages = (errArr, errDiv) => {
+    clearPage()
+    clearIterations()
+
     let concat = /*html*/`
     <h1>Error</h1>
     <img src="images/error.gif" class="errImg">

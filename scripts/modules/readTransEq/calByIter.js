@@ -1,5 +1,8 @@
+import Variables from "../../variables.js";
+
 const calByIter = (userFunction, limInf, limSup, cantDec, cantIter) => {
     let rows = []
+    const variables = new Variables
 
     let iteration; let xi; let xu; let xr; let fxi; let fxu; let fxr; let sigfxi; let sigfxu; let sigfxr; let cambio; let error; let resAbs
     for (let i = 0; i < cantIter; i++) {
@@ -30,10 +33,10 @@ const calByIter = (userFunction, limInf, limSup, cantDec, cantIter) => {
         } else if (sigfxu === sigfxr) {
             cambio = /*html*/`<p>x<sub>u</sub> → x<sub>${iteration}</sub></p>`
         } else if (sigfxi === sigfxr && sigfxu === sigfxr) {
-            console.error("La ecuacion no tiene raiz");
+            variables.setNewErrorInfo("La ecuacion no tiene raiz")
             return;
         } else if (sigfxi != sigfxr && sigfxu != sigfxr) {
-            console.error("La ecuacion no tiene raiz");
+            variables.setNewErrorInfo("La ecuacion no tiene raiz")
             return
         }
         if (iteration != 1) {
