@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", e => {
         e.stopPropagation()
 
         variables.clearErrorInfo()
+        variables.restPack()
 
         variables.setUserEq(variables.userEqInput.value.toLowerCase())
         // console.log(variables.userEqInput.value.toLowerCase());
@@ -36,7 +37,37 @@ document.addEventListener("DOMContentLoaded", e => {
             variables.errDiv.style.display = "none";
             const formattedEquation = formatEquation(variables.userEq)
             variables.transEqInput.innerHTML = `${formattedEquation}`
-            showInfo(variables.rows)
+            variables.showedIter.innerHTML = `Iteraciones 1-${variables.rowsQuant}`
+            if (variables.rowsQuant > 10) {
+                showInfo(variables.rows, variables.actualIndexIt)
+                //Agregando evento a los botones de cambio de cantidad de iteraciones
+                variables.showedIter.innerHTML = `Iteraciones 1-10`
+                variables.nextPackIt.addEventListener("click", e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    variables.nexPack();
+                    if (variables.actualIndexIt + 10 <= variables.rowsQuant) {
+                        showInfo(variables.rows, variables.actualIndexIt);
+                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
+                    } else if ((variables.actualIndexIt + 10 - variables.rowsQuant) > 0) {
+                        showInfo(variables.rows, variables.actualIndexIt);
+                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.rowsQuant}`
+                    }
+                })
+
+                variables.befPackIt.addEventListener("click", e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (variables.actualIndexIt - 10 >= 0) {
+                        variables.befPack();
+                        showInfo(variables.rows, variables.actualIndexIt);
+                        variables.showedIter.innerHTML = `Iteraciones ${variables.actualIndexIt + 1}-${variables.actualIndexIt + 10}`
+                    }
+                })
+            } else {
+                showInfo(variables.rows, 0)
+            }
+
         }
 
 

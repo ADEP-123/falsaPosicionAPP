@@ -18,6 +18,11 @@ class Variables {
             this.errMin = document.querySelector("#errMin");
             this.rows = [];
             this.tableInfoDiv = document.querySelector(".tableInfoDiv")
+            this.rowsQuant = 0;
+            this.actualIndexIt = 0;
+            this.nextPackIt = document.querySelector("#nextPackIt");
+            this.befPackIt = document.querySelector("#befPackIt");
+            this.showedIter = document.querySelector("#showedIter");
             Variables.instance = this;
         }
         return Variables.instance
@@ -37,6 +42,19 @@ class Variables {
 
     setRows(rows) {
         this.rows = rows;
+        this.rowsQuant = rows.length
+    }
+
+    nexPack() {
+        this.actualIndexIt += 10
+    }
+
+    befPack() {
+        this.actualIndexIt -= 10
+    }
+
+    restPack() {
+        this.actualIndexIt = 0
     }
 
 }

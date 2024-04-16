@@ -1,4 +1,4 @@
-const showInfo = (rows) => {
+const showInfo = (rows, indice) => {
     const panelDiv = document.querySelector(".tablePanelDiv");
     panelDiv.querySelectorAll(".tableRowDiv").forEach(element => {
         element.id != "row0" ? panelDiv.removeChild(element) : null;
@@ -7,7 +7,11 @@ const showInfo = (rows) => {
     const oldRow = document.querySelector("#row0")
     oldRow.style.display = "none"
     let lastRowNum = 0;
-    rows.forEach(element => {
+    for (let i = indice; i <= indice + 9; i++) {
+        if (i >= rows.length) {
+            return;
+        }
+        const element = rows[i]
         const lastRow = document.querySelector(`#row${lastRowNum}`);
         const div = oldRow.cloneNode(true);
         div.style.display = "flex";
@@ -27,6 +31,6 @@ const showInfo = (rows) => {
         ps[11].innerHTML = `${element.error}`
         ps[12].innerHTML = `${element.resAbs}`
         lastRow.insertAdjacentElement("beforeBegin", div)
-    });
+    }
 }
 export default showInfo
